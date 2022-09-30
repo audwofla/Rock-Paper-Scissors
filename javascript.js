@@ -28,10 +28,10 @@ function gameRound(playerSelection, computerSelection) {
       console.log("It's a tie")
       winner = "Tie";
     }else if (computerSelection == "Paper") {
-      console.log("You lose! Paper beats rock!")
+      console.log("You lose this round! Paper beats rock!")
       winner = "Lose";
     }else if (computerSelection == "Scissors") {
-      console.log("You win! Rock beats scissors!")
+      console.log("You win this round! Rock beats scissors!")
       winner = "Win";
     }
   }else if (playerSelection == "PAPER") {
@@ -39,10 +39,10 @@ function gameRound(playerSelection, computerSelection) {
       console.log("It's a tie")
       winner = "Tie";
     }else if (computerSelection == "Scissors") {
-      console.log("You lose! Scissors beats paper!")
+      console.log("You lose this round! Scissors beats paper!")
       winner = "Lose";
     }else if (computerSelection == "Rock") {
-      console.log("You win! Paper beats rock!")
+      console.log("You win this round! Paper beats rock!")
       winner = "Win";
     }
   }else if (playerSelection == "SCISSORS") {
@@ -50,10 +50,10 @@ function gameRound(playerSelection, computerSelection) {
       console.log("It's a tie")
       winner = "Tie";
     }else if (computerSelection == "Rock") {
-      console.log("You lose! Rock beats scissor!")
+      console.log("You lose this round! Rock beats scissor!")
       winner = "Lose";
     }else if (computerSelection == "Paper") {
-      console.log("You win! Scissors beats paper!")
+      console.log("You win this round! Scissors beats paper!")
       winner = "Win";
     }
   return winner;
@@ -63,7 +63,7 @@ function gameRound(playerSelection, computerSelection) {
 function game() {
   let win = 0;
   let loss = 0;
-  for (let i = 1; i < 6; i++) {
+  while (win < 5 && loss < 5) {
     let playerSelection = prompt();
     let computerSelection = getComputerChoice();
     gameRound(playerSelection, computerSelection);
@@ -71,15 +71,12 @@ function game() {
       win++;
     }else if (winner == "Lose") {
       loss++;
-    }else if (winner == "Tie") {
-      --i;
     }
-    console.log("Round:", i);
     console.log("Win:", win, "Loss:", loss);
-    if (win == 3) {
-      console.log("You win the best of three!");
-    }else if (loss == 3) {
-      console.log("You lose the best of three!");
+    if (win == 5) {
+      console.log("You win the game!");
+    }else if (loss == 5) {
+      console.log("You lose the game!");
     }
   }
 
