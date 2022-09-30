@@ -8,18 +8,18 @@ function getComputerChoice() {
   }else if (choice > .67) {
     choice = "Scissors";
   }
-  console.log(choice)
   return choice
 
 }
-let playerSelection = prompt();
-let computerSelection = getComputerChoice();
+let playerSelection = ""
+let computerSelection = ""
 
 //plays a round of rock paper scissors
 //takes two parameters and returns a string that declares the winner
 //"You lose! Paper beats Rock!"
 //make playerSelection parameter case-insensitive (rock, ROCK, or RocK are all valid results)
 function gameRound(playerSelection, computerSelection) {
+  computerSelection = getComputerChoice();
   playerSelection = playerSelection.toUpperCase();
   if (playerSelection == "ROCK") {
     if (computerSelection == "Rock") {
@@ -30,15 +30,15 @@ function gameRound(playerSelection, computerSelection) {
       console.log("You win! Rock beats scissors!")
     }
   }else if (playerSelection == "PAPER") {
-    if (computerSelection == "paper") {
+    if (computerSelection == "Paper") {
       console.log("It's a tie")
     }else if (computerSelection == "Scissors") {
-      console.log("You lose! Scissors beats pape!r")
-    }else if (computerSelection == "Scissors") {
+      console.log("You lose! Scissors beats paper!")
+    }else if (computerSelection == "Rock") {
       console.log("You win! Paper beats rock!")
     }
   }else if (playerSelection == "SCISSORS") {
-    if (computerSelection == "scissors") {
+    if (computerSelection == "Scissors") {
       console.log("It's a tie")
     }else if (computerSelection == "Rock") {
       console.log("You lose! Rock beats scissor!")
@@ -52,6 +52,9 @@ function gameRound(playerSelection, computerSelection) {
 
 function game() {
   for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt();
+    let computerSelection = getComputerChoice();
+    gameRound(playerSelection, computerSelection);
 
   }
 //use console.log() to display winner
